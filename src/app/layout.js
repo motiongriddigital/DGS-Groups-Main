@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer";
 import UniqueMarquee from "@/components/unique-marquee/UniqueMarquee";
+import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -35,10 +36,12 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
-        <UniqueMarquee />
-        <Footer />
+        <SmoothScrollProvider>
+          <Navbar />
+          {children}
+          <UniqueMarquee />
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );
