@@ -23,8 +23,6 @@ export default function HomePage() {
 
   useEffect(() => {
     if (!isLoading) {
-      // After the preloader completes, wait for the DOM to settle and images
-      // to load before doing the authoritative ScrollTrigger refresh.
       const rafId = requestAnimationFrame(() => {
         const images = document.querySelectorAll("img");
         const imagePromises = Array.from(images).map((img) => {
