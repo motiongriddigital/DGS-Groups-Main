@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import TextZoomScroll from "@/components/reuseable-animated-component/TextZoomScroll";
 import { dgsBatches } from "@/data/textZoom";
+import TextZoomScroll from "../TextZoomScroll";
 
 const TextZoom = () => {
   return (

@@ -4,15 +4,15 @@ import React, { useEffect } from "react";
 import { useLoading } from "@/context/Loading.context";
 import { gsap, ScrollTrigger } from "@/utils/gsap.utils";
 import DualPortalGateway from "./components/hero/DualPortalGateway";
-import MotiveSection from "./components/sections/MotiveSection";
+import MotiveSection from "./MotiveSection";
 import CountUpStats from "./components/countup/CountUpStats";
-import MumbaiPresenceMap from "./components/sections/MumbaiPresenceMap";
-import Awards from "./components/sections/Awards";
-import AboutUs from "./components/sections/AboutUs";
-import TextZoom from "./components/sections/TextZoom";
-import ContactSection from "./components/sections/ContactSection";
-import Preloader from "@/components/Loader";
+import TextZoom from "./TextZoom";
 import Reviews from "./Reviews";
+import AboutUs from "./AboutUs";
+import Awards from "./Awards";
+import MumbaiPresenceMap from "./components/mumbai-map/MumbaiRailwayMap";
+import Preloader from "../Loader";
+import ContactSection from "./ContactSection";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
