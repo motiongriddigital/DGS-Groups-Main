@@ -10,9 +10,9 @@ import MumbaiPresenceMap from "./components/sections/MumbaiPresenceMap";
 import Awards from "./components/sections/Awards";
 import AboutUs from "./components/sections/AboutUs";
 import TextZoom from "./components/sections/TextZoom";
-import Reviews from "./components/sections/Reviews";
 import ContactSection from "./components/sections/ContactSection";
 import Preloader from "@/components/Loader";
+import Reviews from "./Reviews";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
