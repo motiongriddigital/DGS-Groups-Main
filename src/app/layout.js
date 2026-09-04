@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer";
 import UniqueMarquee from "@/components/unique-marquee/UniqueMarquee";
 import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
+import { LoadingProvider } from "@/context/Loading.context";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -33,15 +34,22 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={`${cinzel.variable} ${poppins.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <SmoothScrollProvider>
-          <Navbar />
-          {children}
-          <UniqueMarquee />
-          <Footer />
-        </SmoothScrollProvider>
+      <head>
+        <link rel="icon" href="/Logo.svg" type="image/svg+xml" sizes="any" />
+        <link rel="apple-touch-icon" href="/Logo.svg" />
+      </head>
+      <body className="font-poppins min-h-full flex flex-col">
+        <LoadingProvider>
+          <SmoothScrollProvider>
+            <Navbar />
+            {children}
+            <UniqueMarquee />
+            <Footer />
+          </SmoothScrollProvider>
+        </LoadingProvider>
       </body>
     </html>
   );
