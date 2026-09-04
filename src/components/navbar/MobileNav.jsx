@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import Button from "../ui/Button";
 import MobileNavBtn from "./MobileNavBtns";
-import Cross from "../../../public/icons/Cross";
+import Cross from "@/icons/Cross";
 import { gsap } from "@/utils/gsap.utils";
+import Button from "../ui/Button";
 
 const MobileNav = ({
   isOpen,

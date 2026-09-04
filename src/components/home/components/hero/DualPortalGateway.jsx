@@ -1,0 +1,97 @@
+import Image from "next/image";
+import Link from "next/link";
+import HeroTextCard from "./HeroTextCard";
+import HeroCenterCard from "./HeroCenterCard";
+
+const Portal = ({
+  image,
+  subtitle,
+  title,
+  description,
+  alignment = "left",
+  href = "/",
+}) => {
+  const alignClass =
+    alignment === "left"
+      ? "lg:justify-start lg:pl-8 xl:pl-12"
+      : "lg:justify-end lg:pr-8 xl:pr-12";
+  return (
+    <Link
+      href={href}
+      className={`relative block w-full h-[calc(100vh-80px)] lg:h-full lg:w-[38%] group cursor-pointer overflow-hidden ${
+        alignment === "left" ? "lg:rounded-r-[40px]" : "lg:rounded-l-[40px]"
+      }`}
+    >
+      {/* Background Image with Zoom Effect */}
+      <Image
+        src={image}
+        alt={title}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 38vw"
+        className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
+        priority={alignment === "left"}
+        quality={70}
+      />
+
+      {/* Overlay to ensure text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+      {/* Content Container */}
+      <div
+        className={`absolute bottom-8 lg:bottom-10 z-10 w-full px-6 lg:px-0 flex justify-start ${alignClass}`}
+      >
+        <div className="transform transition-transform duration-700 ease-out group-hover:-translate-y-4">
+          <HeroTextCard
+            subtitle={subtitle}
+            title={title}
+            description={description}
+          />
+        </div>
+      </div>
+    </Link>
+  );
+};
+
+const DualPortalGateway = () => {
+  return (
+    <section className="relative w-full max-w-[1900px] mx-auto flex flex-col lg:flex-row justify-between overflow-hidden bg-white lg:h-[calc(100vh-104px)]">
+      {/* Left Portal: DGS BUILDERS -> /builder */}
+      <Portal
+        href="/builder"
+        image="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=75"
+        subtitle="DGS BUILDERS"
+        title="Mr. Brahamdev Shukla"
+        description="Redefining affordable housing through architectural excellence and community-centric living."
+        alignment="left"
+      />
+
+      {/* Center Flex Column */}
+      <div className="hidden lg:flex flex-1 items-center justify-center px-4 z-10">
+        <HeroCenterCard
+          subtitle="CRAFTING LANDMARKS"
+          title={
+            <>
+              Timeless
+              <br />
+              by Design
+            </>
+          }
+          description="Redefining the skyline of Mumbai with iconic architecture, elevated living and unmatched experiences."
+          className="bg-transparent p-0 max-w-sm"
+        />
+      </div>
+
+      {/* Right Portal: DGS RETAILERS -> /retailer */}
+      <Portal
+        href="/retailer"
+        image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=75"
+        subtitle="DGS RETAILERS"
+        title="Mr. Surajdev Shukla"
+        description="Crafting luxurious living spaces with prime locations and world-class amenities."
+        alignment="right"
+      />
+    </section>
+  );
+};
+
+export default DualPortalGateway;

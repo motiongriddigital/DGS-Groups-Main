@@ -1,1 +1,48 @@
 @import "tailwindcss";
+
+@theme {
+  --font-cinzel: var(--font-cinzel);
+  --font-poppins: var(--font-poppins);
+  --color-primary: #c59b6d;
+  --color-primary-hover: #b08658;
+}
+
+body {
+  background-color: white;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-cinzel), serif;
+  }
+  p {
+    font-family: var(--font-poppins), sans-serif;
+  }
+}
+
+/* Lenis Smooth Scroll Styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}

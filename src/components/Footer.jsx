@@ -20,7 +20,7 @@ const Footer = () => {
             </p>
           </div>
           <Link
-            href="/contact"
+            href="/#contact"
             className="group relative inline-flex items-center justify-center px-8 py-4 bg-primary text-black text-sm font-bold uppercase tracking-widest overflow-hidden rounded-sm transition-all hover:bg-white"
           >
             Start Your Journey
@@ -41,19 +41,19 @@ const Footer = () => {
               Home Gateway
             </Link>
             <Link
-              href="/"
+              href="/#legacy"
               className="text-neutral-400 hover:text-white transition-colors text-sm"
             >
               30-Year Legacy
             </Link>
             <Link
-              href="/"
+              href="/#about"
               className="text-neutral-400 hover:text-white transition-colors text-sm"
             >
               Founders&apos; Vision
             </Link>
             <Link
-              href="/"
+              href="/#awards"
               className="text-neutral-400 hover:text-white transition-colors text-sm"
             >
               Awards & Media
@@ -66,25 +66,25 @@ const Footer = () => {
               DGS Builders
             </h4>
             <Link
-              href="/builders"
+              href="/builder"
               className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Residential Overview
             </Link>
             <Link
-              href="/projects?type=residential&status=ongoing"
+              href="/builder#projects"
               className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Ongoing Projects
             </Link>
             <Link
-              href="/projects?type=residential&status=completed"
+              href="/builder#completed"
               className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Completed Projects
             </Link>
             <Link
-              href="/builders"
+              href="/builder#amenities"
               className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Lifestyle Amenities
@@ -97,25 +97,25 @@ const Footer = () => {
               DGS Retailers
             </h4>
             <Link
-              href="/retailers"
+              href="/retailer"
               className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Commercial Overview
             </Link>
             <Link
-              href="/projects?type=commercial"
+              href="/retailer#commercial"
               className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Retail Spaces
             </Link>
             <Link
-              href="/projects?type=industrial"
+              href="/retailer#industrial"
               className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Industrial Hubs
             </Link>
             <Link
-              href="/retailers"
+              href="/retailer#leasing"
               className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Leasing Enquiries

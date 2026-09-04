@@ -2,17 +2,17 @@
 
 import React, { useEffect } from "react";
 import { useLoading } from "@/context/Loading.context";
-import DualPortalGateway from "@/components/pages/Home/hero/DualPortalGateway";
 import { gsap, ScrollTrigger } from "@/utils/gsap.utils";
-import MotiveSection from "@/components/pages/Home/MotiveSection";
-import CountUpStats from "@/components/pages/Home/countup/CountUpStats";
-import Awards from "../pages/Home/Awards";
-import Reviews from "../pages/Home/Reviews";
-import TextZoom from "../pages/Home/TextZoom";
-import AboutUs from "../pages/Home/AboutUs";
-import MumbaiPresenceMap from "../pages/Home/MumbaiPresenceMap";
-import ContactSection from "../sections/contact/ContactSection";
-import Preloader from "../Loader";
+import DualPortalGateway from "./components/hero/DualPortalGateway";
+import MotiveSection from "./components/sections/MotiveSection";
+import CountUpStats from "./components/countup/CountUpStats";
+import MumbaiPresenceMap from "./components/sections/MumbaiPresenceMap";
+import Awards from "./components/sections/Awards";
+import AboutUs from "./components/sections/AboutUs";
+import TextZoom from "./components/sections/TextZoom";
+import Reviews from "./components/sections/Reviews";
+import ContactSection from "./components/sections/ContactSection";
+import Preloader from "@/components/Loader";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
