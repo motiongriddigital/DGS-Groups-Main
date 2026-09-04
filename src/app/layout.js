@@ -41,13 +41,15 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/Logo.svg" type="image/svg+xml" sizes="any" />
         <link rel="apple-touch-icon" href="/Logo.svg" />
       </head>
-      <body className="font-poppins min-h-full flex flex-col">
+      <body className="font-poppins min-h-full flex flex-col items-center justify-start bg-neutral-950 text-neutral-900 antialiased overflow-x-hidden">
         <LoadingProvider>
           <SmoothScrollProvider>
-            <Navbar />
-            {children}
-            <UniqueMarquee />
-            <Footer />
+            <div className="w-full max-w-[1920px] mx-auto min-h-screen flex flex-col bg-white overflow-x-hidden relative">
+              <Navbar />
+              <div className="flex-1 w-full">{children}</div>
+              <UniqueMarquee />
+              <Footer />
+            </div>
           </SmoothScrollProvider>
         </LoadingProvider>
       </body>

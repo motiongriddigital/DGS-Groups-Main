@@ -20,7 +20,7 @@ const MarqueeHeader = ({ headingText, visualElement }) => {
       <div className="relative w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 flex-shrink-0 flex items-center justify-center">
         {visualElement || (
           <Image
-            src="/GIFs/door-key-unlock.gif"
+            src="/gif/door-key-unlock.gif"
             alt="Door key unlock animation"
             fill
             unoptimized

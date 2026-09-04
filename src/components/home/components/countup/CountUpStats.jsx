@@ -10,7 +10,7 @@ if (typeof window !== "undefined") {
 
 const StatItem = forwardRef(({ endValue, suffix, label }, ref) => {
   return (
-    <div className="relative flex flex-row md:flex-col items-center justify-start md:justify-between w-full md:w-1/4 group z-10 gap-6 md:gap-0 pl-2 sm:pl-4 md:pl-0">
+    <div className="relative flex flex-row md:flex-col items-center justify-start md:justify-between w-full md:w-1/4 group z-10 gap-4 sm:gap-6 md:gap-0 pl-2 sm:pl-4 md:pl-0">
       {/* Pinpoint Dot (Left on Mobile, Bottom on Desktop) */}
       <div className="w-6 h-6 rounded-full bg-white border-[3px] border-primary shadow-md z-20 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-125 order-1 md:order-2">
         <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
@@ -18,13 +18,13 @@ const StatItem = forwardRef(({ endValue, suffix, label }, ref) => {
 
       {/* Content Container (Right on Mobile, Top on Desktop) */}
       <div className="flex flex-col items-start md:items-center mb-0 md:mb-10 order-2 md:order-1">
-        <div className="flex items-baseline text-neutral-900 font-semibold text-4xl sm:text-5xl md:text-6xl tracking-tighter">
+        <div className="flex items-baseline text-neutral-900 font-semibold text-3xl sm:text-4xl md:text-3xl lg:text-5xl xl:text-6xl tracking-tighter whitespace-nowrap">
           {/* The ref is attached specifically to the number that will change */}
           <span ref={ref}>0</span>
           <span>{suffix}</span>
         </div>
 
-        <p className="mt-1 md:mt-3 text-xs sm:text-sm font-bold tracking-[0.15em] text-primary uppercase text-left md:text-center">
+        <p className="mt-1 md:mt-3 text-xs sm:text-xs md:text-[11px] lg:text-sm font-bold tracking-[0.12em] lg:tracking-[0.15em] text-primary uppercase text-left md:text-center">
           {label}
         </p>
       </div>
@@ -106,7 +106,7 @@ const CountUpStats = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full py-20 bg-white overflow-hidden">
+    <section ref={sectionRef} className="w-full py-16 md:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="relative w-full flex flex-col md:flex-row justify-between items-start md:items-stretch gap-12 md:gap-0 pt-4">
           {/* THE BACKGROUND TRACK */}

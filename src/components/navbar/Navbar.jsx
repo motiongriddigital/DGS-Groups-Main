@@ -45,9 +45,8 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="sticky top-0 left-0 w-full z-40 bg-white/40 backdrop-blur-lg">
-        <nav className="max-w-[1900px] mx-auto flex items-center justify-between px-5 sm:px-8 md:px-10 py-3 md:py-4">
-          {/* LOGO — Redirects to Home Page */}
+      <header className="sticky top-0 left-0 w-full z-40 bg-white/80 backdrop-blur-lg border-b border-neutral-100">
+        <nav className="w-full flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 lg:py-4">
           <Link
             href="/"
             onClick={() => setMobileMenuOpen(false)}
@@ -56,8 +55,8 @@ const Navbar = () => {
             <Logo variant="lg" />
           </Link>
 
-          {/* DESKTOP & TABLET: Nav Links (Conditionally rendered by route) */}
-          <div className="hidden md:flex items-center gap-2 lg:gap-3">
+          {/* DESKTOP & LARGE SCREENS (>= lg): Nav Links */}
+          <div className="hidden lg:flex items-center gap-1 xl:gap-3">
             {navItems.map((item) => (
               <Navbtns
                 key={item.label}
@@ -68,20 +67,20 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* DESKTOP & TABLET: Contact Button */}
-          <div className="hidden md:block">
+          {/* DESKTOP & LARGE SCREENS (>= lg): Contact Button */}
+          <div className="hidden lg:block shrink-0">
             <Button variant="primary" size="md" onClick={handleContactClick}>
               Contact Us
             </Button>
           </div>
 
-          {/* MOBILE: Hamburger Button */}
+          {/* MOBILE & TABLETS (< lg): Hamburger Button */}
           <Button
             variant="ghost"
             size="none"
             aria-label="Toggle Menu"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
-            className="md:hidden p-2 rounded-lg text-neutral-800"
+            className="lg:hidden p-2 rounded-lg text-neutral-800"
           >
             {mobileMenuOpen ? (
               <Cross className="w-7 h-7" />
@@ -92,7 +91,7 @@ const Navbar = () => {
         </nav>
       </header>
 
-      {/* MOBILE NAV COMPONENT */}
+      {/* MOBILE & TABLET NAV COMPONENT */}
       <MobileNav
         isOpen={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}

@@ -48,38 +48,41 @@ export default function InteractiveTransitMap({ title, subtitle }) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 7%",
-          end: "+=2500",
+          start: "top top",
+          end: "+=150%",
           scrub: 1,
           pin: true,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
-            const prog = self.progress;
-            const currentIdx = STATIONS_DATA.findLastIndex(
-              (st) => prog >= st.progress - 0.05,
+            const idx = Math.min(
+              Math.floor(self.progress * STATIONS_DATA.length),
+              STATIONS_DATA.length - 1
             );
-            setActiveIndex(currentIdx >= 0 ? currentIdx : 0);
+            setActiveIndex(idx);
           },
         },
       });
 
       if (pathH) {
-        const totalH = pathH.getTotalLength();
-        tl.fromTo(
+        tl.to(
           pathH,
-          { strokeDasharray: totalH, strokeDashoffset: totalH },
-          { strokeDashoffset: 0, ease: "none", duration: 1 },
-          0,
+          {
+            strokeDashoffset: 0,
+            ease: "none",
+          },
+          0
         );
       }
+
       if (pathV) {
-        const totalV = pathV.getTotalLength();
-        tl.fromTo(
+        tl.to(
           pathV,
-          { strokeDasharray: totalV, strokeDashoffset: totalV },
-          { strokeDashoffset: 0, ease: "none", duration: 1 },
-          0,
+          {
+            strokeDashoffset: 0,
+            ease: "none",
+          },
+          0
         );
       }
     }, sectionRef.current);
@@ -98,7 +101,7 @@ export default function InteractiveTransitMap({ title, subtitle }) {
       {/* ------------------------------------------------------------- */}
       {/* 1. MOBILE & TABLET LAYOUT (< lg): VERTICAL MAP ONLY */}
       {/* ------------------------------------------------------------- */}
-      <div className="block lg:hidden relative w-full max-w-md mt-8 sm:mt-12">
+      <div className="block lg:hidden relative w-full max-w-md sm:max-w-lg md:max-w-xl mt-8 sm:mt-12">
         <div className="relative w-full bg-[#f0f3f5] border border-[#e2e6ea] rounded-2xl p-3 sm:p-5 shadow-sm">
           <div className="relative w-full aspect-[5/9.8]">
             <svg

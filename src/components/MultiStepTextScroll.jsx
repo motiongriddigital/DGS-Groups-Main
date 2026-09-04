@@ -196,7 +196,7 @@ const MultiStepTextScroll = ({ data = [], bgColor = "#F9F8F5" }) => {
               }}
             >
               {/* Massive Title crossing the split */}
-              <h1 className="w-full pl-[10%] text-[13vw] md:text-[11vw] lg:text-[10vw] font-medium font-poppins text-[#121212] leading-[0.85] tracking-tighter text-left uppercase mt-[-5vh]">
+              <h1 className="w-full pl-[10%] text-[13vw] md:text-[11vw] lg:text-[10vw] xl:text-[140px] 2xl:text-[160px] font-medium font-poppins text-[#121212] leading-[0.85] tracking-tighter text-left uppercase mt-[-5vh]">
                 {words.map((word, wIdx) => (
                   <div key={wIdx} className="overflow-hidden block">
                     <span className="word-item inline-block will-change-transform whitespace-nowrap">

@@ -54,7 +54,7 @@ const Portal = ({
 
 const DualPortalGateway = () => {
   return (
-    <section className="relative w-full max-w-[1900px] mx-auto flex flex-col lg:flex-row justify-between overflow-hidden bg-white lg:h-[calc(100vh-104px)]">
+    <section className="relative w-full flex flex-col lg:flex-row justify-between overflow-hidden bg-white lg:h-[calc(100vh-104px)]">
       {/* Left Portal: DGS BUILDERS -> /builder */}
       <Portal
         href="/builder"
