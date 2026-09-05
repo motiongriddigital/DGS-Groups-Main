@@ -59,7 +59,17 @@ export default function SmoothScrollProvider({ children }) {
     // Refresh ScrollTrigger after Lenis initialization
     ScrollTrigger.refresh();
 
-    // 5. Listen for page transitions to re-sync Lenis dimensions with new page content
+    // 5. Page visibility handling: pause Lenis RAF when tab is backgrounded
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        lenis.stop();
+      } else {
+        lenis.start();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // 6. Listen for page transitions to re-sync Lenis dimensions with new page content
     const handlePageTransitionComplete = () => {
       // Lenis needs to recalculate the new page's scroll height
       lenis.resize();
@@ -74,6 +84,7 @@ export default function SmoothScrollProvider({ children }) {
 
     // Cleanup on unmount
     return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener(
         "page-transition-complete",
         handlePageTransitionComplete,

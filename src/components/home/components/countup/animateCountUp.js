@@ -10,8 +10,8 @@ export const animateCountUp = (element, endValue, duration = 2) => {
     duration: duration,
     ease: "power2.out",
     onUpdate: () => {
-      // Math.ceil gives us clean whole numbers as it counts up
-      element.innerText = Math.ceil(target.val);
+      // Math.ceil gives us clean whole numbers as it counts up without triggering layout reflows
+      element.textContent = Math.ceil(target.val);
     },
   });
 };

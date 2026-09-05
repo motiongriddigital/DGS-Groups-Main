@@ -8,9 +8,11 @@ const InfiniteTrack = ({ items = [] }) => {
   useEffect(() => {
     if (!containerRef.current) return;
 
+    let tween;
+
     const ctx = gsap.context(() => {
       // Moves wrapper by -50% to create a continuous, seamless infinite loop from right to left
-      gsap.to(".marquee-inner", {
+      tween = gsap.to(".marquee-inner", {
         xPercent: -50,
         repeat: -1,
         duration: 22,
@@ -19,7 +21,26 @@ const InfiniteTrack = ({ items = [] }) => {
       });
     }, containerRef.current);
 
-    return () => ctx.revert();
+    // Throttle animation loop: pause marquee when scrolled out of viewport
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (tween) {
+          if (entry.isIntersecting) {
+            tween.resume();
+          } else {
+            tween.pause();
+          }
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(containerRef.current);
+
+    return () => {
+      observer.disconnect();
+      ctx.revert();
+    };
   }, []);
 
   // Helper to render the string of keywords

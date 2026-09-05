@@ -41,7 +41,10 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/Logo.svg" type="image/svg+xml" sizes="any" />
         <link rel="apple-touch-icon" href="/Logo.svg" />
       </head>
-      <body className="font-poppins min-h-full flex flex-col items-center justify-start bg-neutral-950 text-neutral-900 antialiased overflow-x-hidden">
+      <body
+        suppressHydrationWarning
+        className="font-poppins min-h-full flex flex-col items-center justify-start bg-neutral-950 text-neutral-900 antialiased overflow-x-hidden"
+      >
         <LoadingProvider>
           <SmoothScrollProvider>
             <div className="w-full max-w-[1920px] mx-auto min-h-screen flex flex-col bg-white overflow-x-hidden relative">

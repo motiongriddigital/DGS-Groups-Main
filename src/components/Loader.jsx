@@ -116,7 +116,7 @@ const Preloader = ({
                 if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
                 rafIdRef.current = requestAnimationFrame(() => {
                   if (counterRef.current) {
-                    counterRef.current.innerText = `${currentRound}%`;
+                    counterRef.current.textContent = `${currentRound}%`;
                   }
                 });
               }

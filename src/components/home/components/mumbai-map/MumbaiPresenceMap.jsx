@@ -21,6 +21,7 @@ export default function InteractiveTransitMap({ title, subtitle }) {
   const pathRefHorizontal = useRef(null);
   const pathRefVertical = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const lastIndexRef = useRef(0);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -59,7 +60,10 @@ export default function InteractiveTransitMap({ title, subtitle }) {
               Math.floor(self.progress * STATIONS_DATA.length),
               STATIONS_DATA.length - 1
             );
-            setActiveIndex(idx);
+            if (lastIndexRef.current !== idx) {
+              lastIndexRef.current = idx;
+              setActiveIndex(idx);
+            }
           },
         },
       });

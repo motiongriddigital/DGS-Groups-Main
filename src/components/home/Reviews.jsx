@@ -116,7 +116,7 @@ const Reviews = () => {
                 <Image
                   fill
                   sizes="(max-width: 1024px) 100vw, 60vw"
-                  src="/youtube_thumbnail.png"
+                  src={`https://img.youtube.com/vi/${youtubeVideoId}/maxresdefault.jpg`}
                   alt="Customer Review Thumbnail"
                   className="object-cover"
                 />
