@@ -10,6 +10,8 @@ const Portal = ({
   description,
   alignment = "left",
   href = "/",
+  target,
+  rel,
 }) => {
   const alignClass =
     alignment === "left"
@@ -18,6 +20,8 @@ const Portal = ({
   return (
     <Link
       href={href}
+      target={target || (href.startsWith("http") ? "_blank" : undefined)}
+      rel={rel || (href.startsWith("http") ? "noopener noreferrer" : undefined)}
       className={`relative block w-full h-[calc(100vh-80px)] lg:h-full lg:w-[38%] group cursor-pointer overflow-hidden ${
         alignment === "left" ? "lg:rounded-r-[40px]" : "lg:rounded-l-[40px]"
       }`}
@@ -55,9 +59,11 @@ const Portal = ({
 const DualPortalGateway = () => {
   return (
     <section className="relative w-full flex flex-col lg:flex-row justify-between overflow-hidden bg-white lg:h-[calc(100vh-104px)]">
-      {/* Left Portal: DGS BUILDERS -> /builder */}
+      {/* Left Portal: DGS BUILDERS */}
       <Portal
-        href="/builder"
+        href="https://dgs-builders.netlify.app/"
+        target="_blank"
+        rel="noopener noreferrer"
         image="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=75"
         subtitle="DGS BUILDERS"
         title="Mr. Brahamdev Shukla"
@@ -81,9 +87,11 @@ const DualPortalGateway = () => {
         />
       </div>
 
-      {/* Right Portal: DGS RETAILERS -> /retailer */}
+      {/* Right Portal: DGS RETAILERS */}
       <Portal
-        href="/retailer"
+        href="https://dgs-retailers.netlify.app/"
+        target="_blank"
+        rel="noopener noreferrer"
         image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=75"
         subtitle="DGS RETAILERS"
         title="Mr. Surajdev Shukla"
